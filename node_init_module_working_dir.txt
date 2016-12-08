@@ -1,0 +1,12 @@
+void init(v8::Local<v8::Object> exports, v8::Handle<v8::Object> module) {
+	v8::Isolate* isolate = exports->GetIsolate();
+	v8::String::Utf8Value str(module->Get(v8::String::NewFromUtf8(isolate, "filename", v8::String::kInternalizedString)).As<v8::String>());
+	const char *fileName = *str;
+	char dirName[256];
+	const char * end = strrchr(fileName, '\\');
+	size_t len = end - fileName + 1;
+	memcpy(dirName, fileName, len);
+	strcpy(dirName + len, "model");
+	dirName[len + 5] = 0;
+
+}
