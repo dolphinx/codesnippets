@@ -1,0 +1,9 @@
+npm install -g express
+express expressApp
+cd expressApp && npm install
+
+npm install -g typescript
+#https://github.com/borisyankov/DefinitelyTyped.git
+npm install -g tsd
+tsd query node express --action install
+tsd query serve mime body-parser cookie-parser --action install
